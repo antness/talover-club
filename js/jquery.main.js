@@ -40,47 +40,45 @@ function clearInputs(){
 };
 
 function slide_bar(){
+
 	$('#btn_bar').on('click',function(){
 		$('#TopBar').slideToggle();
-		$('.slider_block').slideUp();
-		$('#TopBar .f-left a').removeClass('active');
+		$('.slider_block').slideUp().removeClass('active');
+	});
 
+	$('#HideBar').on('click',function(){
+		$('.slider_block').slideUp().removeClass('active');
+		$('.toggle').removeClass('active');
+		ShowHide();
+	});
+
+	$('#ShowBar').on('click',function(){
+		$('#btnJackPots').addClass('active');
 	});
 }
 
 function BarTabs() {
-	$('#CasinoJackPotsBtn').on('click',function(){
-		$('#CurrentWinners ,#TopGames ,#TopWinners').slideUp()
-		$('#CurrentWinnersBtn ,#TopWinnersBtn ,#TopGamesBtn ').removeClass('active');
 
+	$("#TopBar .toggle").on('click',function(){
+		var slider = $(this).data('toggle');
+		$(this).parent().siblings().find('a').removeClass('active');
 		$(this).toggleClass('active');
-		
-		$('#CasinoJackPots').slideToggle();
+
+		$(slider).siblings('.slider_block').slideUp().removeClass('active');
+		$(slider).slideToggle().toggleClass('active');
+		ShowHide();
 	});
+}
 
-	$('#CurrentWinnersBtn').on('click',function(){
-		$('#CasinoJackPots,#TopWinners,#TopGames').slideUp();	
-		$('#CasinoJackPotsBtn,#TopWinnersBtn,#TopGamesBtn').removeClass('active');
+function ShowHide(){
 
-		$(this).toggleClass('active');
-		$('#CurrentWinners').slideToggle();	
-	});
-
-	$('#TopWinnersBtn').on('click',function(){
-		$('#CasinoJackPots,#CurrentWinners,#TopGames').slideUp();	
-		$('#CasinoJackPotsBtn ,#CurrentWinnersBtn,#TopGamesBtn').removeClass('active');
-
-		$(this).toggleClass('active');
-		$('#TopWinners').slideToggle();	
-	});
-
-	$('#TopGamesBtn').on('click',function(){
-		$('#CasinoJackPots,#CurrentWinners,#TopWinners').slideUp();	
-		$('#CasinoJackPotsBtn,#CurrentWinnersBtn,#TopWinnersBtn').removeClass('active');
-
-		$(this).toggleClass('active');
-		$('#TopGames').slideToggle();	
-	});
+	if($('.slider_block').hasClass('active')){
+		$('#ShowBar').hide();
+		$('#HideBar').show();
+	}else {
+		$('#ShowBar').show();
+		$('#HideBar').hide();
+	}
 }
 
 function exit() {
