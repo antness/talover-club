@@ -577,6 +577,12 @@
 							<li><a href="#tabs-4">Настройки</a></li>
 							<li><a data-bind="click: function(){toggle(false);}">Выйти</a></li>
 						</ul>
+
+						<ul class="language_list">
+							<li><a class="ru" href="javascript:void(0)"></a></li>
+							<li><a class="usa" href="javascript:void(0)"></a></li>
+							<li><a class="ita" href="javascript:void(0)"></a></li>
+						</ul>
 					</div>
 					<div class="f-right">
 						<div id="tabs-1">
@@ -651,17 +657,90 @@
 								Здесь вы можете найти полный ваших запросов на выплату. Каждому запросу соотвествует Код выплаты. Статус запроса меняется автоматически после его обработки.
 							</p>
 							<div id="account_history" class="owl-carousel">
-								<div class="item">
-									test
+
+								<div class="item">   
+									<ul>
+										<li>Код Запроса: 5555-5555-5555</li>
+										<li>Сумма: 5555.05</li>
+										<li>Создан: 05-06-14 /12:53</li>
+										<li>Статус: <span class="green">Закрыт</span> </li>
+										<li>Изменен:05-06-14 /12:55</li>
+									</ul> 
 								</div>
-								<div class="item">
+
+								<div class="item">   
+									<ul>
+										<li>Код Запроса: 5555-5555-5555</li>
+										<li>Сумма: 5555.05</li>
+										<li>Создан: 05-06-14 /12:53</li>
+										<li>Статус: <span class="green">Закрыт</span> </li>
+										<li>Изменен:05-06-14 /12:55</li>
+									</ul> 
 								</div>
-								<div class="item">
+
+								<div class="item">   
+									<ul>
+										<li>Код Запроса: 5555-5555-5555</li>
+										<li>Сумма: 5555.05</li>
+										<li>Создан: 05-06-14 /12:53</li>
+										<li>Статус: <span class="green">Закрыт</span> </li>
+										<li>Изменен:05-06-14 /12:55</li>
+									</ul> 
 								</div>
 							</div>
 						</div>
 						<div id="tabs-4">
-						4
+							<h3>Настройки</h3>
+							<p>
+								Указанные настройки будут сохранены в Cookies вашего браузера. После очистки Cookies будут действовать настройки “По умолчанию”.
+							</p>
+
+							<form>
+								<ul class="checked_list">
+									<li>
+										<input id="check_1" type="checkbox" checked />
+										<label for="check_1">
+											<h4>Оставаться в системе</h4>
+											
+											Вы всегда будете авторизованы с данным PIN-кодом.
+											Кнопка “Выход” станет неактивной
+										</label>
+									</li>
+									<li>
+										<input id="check_2" type="checkbox" checked />
+										<label for="check_2">
+											<h4>Скрыть настройки</h4>										
+											
+											Раздел “Настройки” станет неактивным для данного
+											браузера
+										</label>
+									</li>
+									<li>
+										<input id="check_3" type="checkbox" checked />
+										<label for="check_3">	
+											<h4>Скрыть кассу</h4>									
+											
+											Раздел “Касса” (“Cash”) станет неактивным для 
+											данного браузера
+										</label>
+									</li>
+									<li>
+										<input id="check_4" type="checkbox" />
+										<label for="check_4">
+											<h4>Снять Все при выходе </h4>
+											
+											Запрос на выплату всего остатка будет сформирован
+											автоматически при выходе из системы
+										</label>
+									</li>
+
+									<li>
+										<div class="btn_field">
+											<button class="gradient btn_form" type="submit">Применить</button>
+										</div>
+									</li>
+								</ul>
+							</form>	
 						</div>
 					</div>
 				</div><!--END .content_setting-->
@@ -785,10 +864,15 @@
 
 	<script type="text/javascript" src="js/owl.carousel.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+	<script type="text/javascript" src="js/jquery.formstyler.min.js"></script>
 	<script type="text/javascript">
 		jQuery(function(){
 			slider ();
 			$( "#tabs" ).tabs();
+
+			setTimeout(function() {  
+				$('#tabs input').styler();  
+			}, 100) 
 		});
 		function slider () {
 
@@ -813,12 +897,12 @@
 
 			slider.owlCarousel({
 			   itemsCustom : [
-			        [0, 2],
-			        [450, 4],
-			        [600, 7],
-			        [700, 9],
-			        [1000, 11],
-			        [1200, 6],
+			        [0, 1],
+			        [450, 2],
+			        [600, 2],
+			        [700, 3],
+			        [1000, 4],
+			        [1200, 5],
 			        [1400, 6],
 			        [1600, 7],
 			        [1920,8]
