@@ -1,0 +1,20 @@
+body{background-image:none;}
+.settings{background:#000;}
+.money-controls input[type="text"]{
+	background:#868686;
+	border-color:#868686;
+}
+.settings ul li.inactive{
+	background:#030708;
+	border:3px solid #868686;
+	color:#868686;
+}
+#nav ul a.active{background:#2e2622;}
+.lightbox{background:#000;}
+#nav ul li{margin:0;}
+.lightbox ul li.inactive{
+	border:3px solid #50504f;
+	color:#50504f;
+}
+.user-options .balance-section{background:#28221d url(../images/sep-footer.jpg) no-repeat 100% 0;}
+.user-options .btn-play-casino:hover{background-color:#28221d;}

@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=1024">
+	<title>The Club</title>
+	<link rel="stylesheet" href="css/all.css" type="text/css">
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="css/ie.css" type="text/css">
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!--[if gte IE 9]>
+	  <style type="text/css">
+	    .gradient {
+	       filter: none;
+	    }
+	  </style>
+	<![endif]-->
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	
+	<script type="text/javascript">
+		var require = {
+			baseUrl: "js",
+			paths:{
+				ko:'lib/knockoutjs/js/knockout-2.2.1',
+				jquery: 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min',
+				scrollTo: 'scrollTo',
+				scroll: 'custom-scroll',
+				fullscreen: 'fullscreen'
+			}
+		};
+	</script>
+	<script type="text/javascript" src="js/jquery.main.js"></script>
+	<script data-main="main" src="js/lib/requirejs/js/require.js" type="text/javascript"></script>
+</head>
+<body>
+	<section id="TopBar">
+		<nav class="clearfix gradient">		
+			<ul class="clearfix f-left">
+				<li><a id="CasinoJackPotsBtn" href="#">Casino JackPots<i></i></a></li>
+				<li class="line"></li>
+				<li><a id="CurrentWinnersBtn" href="#">Current Winners<i></i></a></li>
+				<li class="line"></li>
+				<li><a id="TopWinnersBtn" href="#">Top Winners<i></i></a></li>
+				<li class="line"></li>
+				<li><a id='TopGamesBtn' href="#">Top Games<i></i></a></li>
+				<li class="line"></li>
+			</ul>
+			<ul class="clearfix f-right">
+				<li class="info">Player: Administrator</li>
+				<li class="info">Bet: 776533299752</li>
+				<li>13:46:09 GMT+4</li>
+				<li>
+					<a id="ShowBar" href="javascript:void(0)">Show Bar<i></i></a>
+					<a id="HideBar" href="javascript:void(0)">Hide Bar<i></i></a>
+				</li>
+				<li class="line"></li>
+				<li id="exit"><a href="javascript:void(0)">Quit Game</a></li>
+			</ul>
+		</nav>
+
+		<div id="CasinoJackPots" class="slider_block">
+			<div  class="slider">
+				<div class="owl-carousel">
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>5 778 965.02</p>
+								<span class="game_name">Viking`s Treasure</span>
+							</span>
+						</a>
+					</div>
+
+				</div>
+				<div class="customNavigation">
+					<a class="btn prev"></a>
+					<a class="btn next"></a>
+				</div>
+			</div>
+		</div>
+
+		<div id="CurrentWinners" class="slider_block">
+
+			<div class="slider">
+				<div class="owl-carousel">
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+				</div>
+				<div class="customNavigation">
+					<a class="btn prev"></a>
+					<a class="btn next"></a>
+				</div>
+			</div><!--END .Winners-->
+		</div>
+
+		<div id="TopWinners" class="slider_block">	
+			<div class="slider">
+				<div class="owl-carousel">
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+							<span class="text_block">
+								<p>988.04</p>
+								<span class="game_name">Viking`s Treasure</span>
+								<span class="player"><i></i>********7682</span>
+							</span>
+						</a>
+					</div>
+				</div>
+				<div class="customNavigation">
+					<a class="btn prev"></a>
+					<a class="btn next"></a>
+				</div>
+			</div><!--END .Winners-->
+		</div><!--END #TopWinners-->
+
+		<div id="TopGames" class="slider_block">
+
+			<div id="Games">
+				<div class="owl-carousel">
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+
+					<div class="item">
+						<a href="#">
+							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
+						</a>
+					</div>
+				</div>
+				<div class="customNavigation">
+					<a class="btn prev"></a>
+					<a class="btn next"></a>
+				</div>
+			</div>
+		</div><!-- #TopGames-->
+	</section><!--END #TopBar-->
+
+	<section id="main">
+		<div id="wrapper" class="clearfix">
+			<!--ko with:sections.current -->
+			<!--header starts-->
+
+			<div id="popup_game">
+				<iframe src="banner.html" width="100%" height="700px" align="left">
+					
+		 		</iframe>
+			</div>
+
+			<header id="header">
+				<nav id="nav">
+					<a id="btn_bar" href="javascript:void(0)"></a>
+					<ul>
+						<!--ko foreach:customFilters-->
+						<li><a href="#" data-bind="text: title, click: $parent.customFilter, css: {active: active}"></a></li>
+						<!--/ko-->
+						<!--ko with:filter-->
+						<!--ko foreach:valueList-->
+						<li><a href="#" data-bind="text: title, click: $parent.select, css: {active: active}"></a></li>
+						<!--/ko-->
+						<!--/ko-->
+					</ul>
+				</nav>
+			</header>
+			<!--header ends-->
+			<!--main starts-->
+			<div id="main">
+				<div class="scroll-holder">
+					<ul class="games-list" data-bind="foreach:filteredGames">
+						<li>
+							<a href="#" data-bind="click: launch">
+								<img src="images/img-game-1.jpg" alt="" width="191" height="191">
+								<!--ko if:isNew-->
+								<span class="new">New</span>
+								<!--/ko-->
+								<span data-bind="text:title"></span>
+								<dl class="info">
+									<dt>JackPot:</dt>
+									<dd>$134 500.43</dd>
+								</dl>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<ul class="tools">
+					<li><a href="#" class="back-to-top">Up</a></li>
+					<li><a href="#" class="full-screen">Full Screen</a></li>
+				</ul>
+			</div>
+			<!--main ends-->
+			<!--/ko-->
+				<!--ko with: cashbox-->
+
+			<div class="lightbox settings_block" data-bind="popup: active">
+				<div id="tabs" class="clearfix">
+					<div class="f-left">
+						<ul>        
+							<li><a href="#tabs-1">Пополнить Счет</a></li>
+							<li><a href="#tabs-2">Получить выигрыш</a></li>
+							<li><a href="#tabs-3">История счета</a></li>
+							<li><a href="#tabs-4">Настройки</a></li>
+							<li><a data-bind="click: function(){toggle(false);}">Выйти</a></li>
+						</ul>
+					</div>
+					<div class="f-right">
+						<div id="tabs-1">
+							<h3>Пополнить счет, используя PIN-код</h3>
+							<p>
+								Вы можете пополнить свой счет используя PIN-код системы GameAgent. Обратитесь к своему Агенту (Кассиру), чтобы приобрести PIN-код.
+							</p>
+							<p>
+								Следуйте инструкциям. Средства будут зачислены на счет автоматически.
+							</p>
+
+							<form>
+								<ul>
+									<li>
+										<h4>1. Введите PIN-код</h4>
+
+										<div class="input_field">
+											<input type="text" placeholder="5555 - 5555 - 5555" onfocus="this.placeholder = ''" onblur="this.placeholder = '5555 - 5555 - 5555'"  />
+										</div>
+										
+									</li>
+
+									<li>
+										<h4>2. Подтвердите ввод</h4>
+
+										<div class="btn_field">
+											<button class="gradient btn_form" type="submit">Пополнить счет</button>
+										</div>
+										<span class="error">PIN-код не найден!</span>
+									</li>
+								</ul>
+							</form>
+						</div>
+						<div id="tabs-2">
+							<h3>Получить Выигрыш</h3>
+							<p>
+								Для того, чтобы получить выигрыш, Вам необходимо сформировать запрос на выплату, получить 12-ти значный Код выплаты и обратиться с ним к своему Агенту (Кассиру).
+							</p>
+							<p>
+								Следуйте инструкциям. Средства будут сняты с Вашего счета автоматически.
+							</p>
+
+							<form>
+								<ul>
+									<li>
+										<h4>1. Укажите сумму, которую хотите снять со счета</h4>
+
+										<div class="input_field">
+											<input type="text" placeholder="555555555.00" onfocus="this.placeholder = ''" onblur="this.placeholder = '555555555.00'"  />
+										</div>
+										<span class="or">или</span>
+
+										<div class="btn_field">
+											<button class="gradient btn_form" type="submit">Снять Все</button>
+										</div>
+									</li>
+
+									<li>
+										<h4>2. Подтвердите ввод и получите Код выплаты</h4>
+
+										<div class="btn_field">
+											<button class="gradient btn_form" type="submit">Пополнить счет</button>
+										</div>
+										<span class="error">Минимальная сумма снятия 500.00!</span>
+									</li>
+								</ul>
+							</form>
+						</div>
+						<div id="tabs-3">
+							<h3>История Счета</h3>
+							<p>
+								Здесь вы можете найти полный ваших запросов на выплату. Каждому запросу соотвествует Код выплаты. Статус запроса меняется автоматически после его обработки.
+							</p>
+							<div id="account_history" class="owl-carousel">
+								<div class="item">
+									test
+								</div>
+								<div class="item">
+								</div>
+								<div class="item">
+								</div>
+							</div>
+						</div>
+						<div id="tabs-4">
+						4
+						</div>
+					</div>
+				</div><!--END .content_setting-->
+			</div>
+		<!--/ko-->
+		</div>
+	</section>
+	<!--footer starts-->
+	<footer id="footer">
+		<div class="user-info">
+			<a class="userpic-holder" href="#">
+				<img src="images/img-userpic-1.png" alt="" width="52" height="52">
+			</a>
+			<dl>
+				<dt>PIN Код Игрока:</dt>
+				<dd data-bind="text: user.username">8854-6658-3325</dd>
+			</dl>
+		</div>
+		<div class="user-options">
+			<div class="balance-section">
+				<strong class="amount" data-bind="text: user.balanceText">$ 75 884.04</strong>
+				<a class="btn-cashier" href="#" data-bind="click: cashbox.toggle">Касса</a>
+			</div>
+			 <!--ko foreach:sections.list-->
+				<a class="btn-play-casino" href="#" data-bind="click: $parent.sections.current"><span data-bind="text: title">Casino</span>Играть в Казино</a>
+			<!--/ko-->
+		</div>
+		<a class="btn-settings" data-bind="click: settings.toggle"><span>Настройки</span></a>
+	</footer>
+	<!--footer ends-->
+
+	<!--ko with: settings-->
+	<div class="lightbox" data-bind="popup: active">
+		<ul class="menu" data-bind="foreach: tabs.list">
+			<li>
+				<a href="#" data-bind="css: {'active': active}, click: $parent.current">
+					<span data-bind="text: title"></span> <!--ko text:subTitle --><!--/ko-->
+				</a>
+			</li>
+		</ul>
+		<div class="main-section">
+			<!-- ko with: settingsBase -->
+			<div class="col">
+				<h2>Язык Интерфейса</h2>
+				<ul class="options-list" data-bind="foreach: languages">
+					<!-- ko if:enabled -->
+					<li><a href="#" data-bind="text: title, click: $parent.language, css: {active: active}"></a></li>
+					<!-- /ko -->
+					<!-- ko ifnot: enabled -->
+					<li class="inactive" data-bind="text: title"></li>
+					<!-- /ko -->
+				</ul>
+			</div>
+			<div class="col">
+				<h2>Валюта счета</h2>
+				<ul class="options-list" data-bind="foreach: currencies">
+					<!-- ko if:enabled -->
+					<li><a href="#" data-bind="text: title, click: $parent.currency, css: {active: active}"></a></li>
+					<!-- /ko -->
+					<!-- ko ifnot: enabled -->
+					<li class="inactive" data-bind="text: title"></li>
+					<!-- /ko -->
+				</ul>
+			</div>
+			<div class="col">
+				<h2>Деноминация</h2>
+				<ul class="options-list" data-bind="foreach: denominations">
+					<!-- ko if:enabled -->
+					<li><a href="#" data-bind="text: title, click: $parent.denomination, css: {active: active}"></a></li>
+					<!-- /ko -->
+					<!-- ko ifnot: enabled -->
+					<li class="inactive" data-bind="text: title"></li>
+					<!-- /ko -->
+				</ul>
+				<p>В играх, где есть внутренняя система деноминации, данные настройки не применяются</p>
+			</div>
+			<section class="option-section" data-bind="if: confirmation.active">
+				<h2>Применить выбранные настройки?</h2>
+				<!-- ko with: confirmation -->
+				<ul>
+					<li>
+						<div class="text">
+							<p><strong>Применить</strong>И перейти к Играм с новыми настройками</p>
+						</div>
+						<a class="btn-accept" href="#" data-bind="click: ok">Применить</a>
+					</li>
+					<li>
+						<a class="btn-decline" href="#" data-bind="click: cancel">Отменить</a>
+						<div class="text">
+							<p><strong>Отменить</strong> И продолжить игру со старыми настройками</p>
+						</div>
+					</li>
+				</ul>
+				<!-- /ko -->
+			</section>
+			<section class="option-section" data-bind="if: confirmation.active">
+				<h2>Вы действительно хотите выйти?</h2>
+				<!-- ko with: confirmation -->
+				<ul>
+					<li>
+						<div class="text">
+							<p><strong>Выйти</strong> Ваша игровая сессия будет закрыта</p>
+						</div>
+						<a class="btn-accept" href="#" data-bind="click: ok">Выйти</a>
+					</li>
+					<li>
+						<a class="btn-decline" href="#" data-bind="click: cancel">Отменить</a>
+						<div class="text">
+							<p><strong>Отменить</strong> И вернуться к игре</p>
+						</div>
+					</li>
+				</ul>
+				<!-- /ko -->
+			</section>
+			<!-- /ko -->
+		</div>
+		<a class="btn-close" data-bind="click: function(){toggle(false);}">Закрыть (Esc)</a>
+
+	</div>
+	<!--/ko-->
+
+	<script type="text/javascript" src="js/owl.carousel.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+	<script type="text/javascript">
+		jQuery(function(){
+			slider ();
+			$( "#tabs" ).tabs();
+		});
+		function slider () {
+
+			var Games = $("#Games .owl-carousel"),
+				slider = $(".slider .owl-carousel");
+
+			Games.owlCarousel({
+			   itemsCustom : [
+			        [0, 2],
+			        [450, 4],
+			        [600, 7],
+			        [700, 9],
+			        [1000, 11],
+			        [1200, 12],
+			        [1400, 14],
+			        [1600, 16],
+			        [1920,18]
+			    ],
+				autoPlay :5000,
+				slideSpeed : 500,
+			});
+
+			slider.owlCarousel({
+			   itemsCustom : [
+			        [0, 2],
+			        [450, 4],
+			        [600, 7],
+			        [700, 9],
+			        [1000, 11],
+			        [1200, 6],
+			        [1400, 6],
+			        [1600, 7],
+			        [1920,8]
+			    ],
+				autoPlay :5000,
+				slideSpeed : 500,
+			});
+
+			// Custom Navigation Events
+			$("#Games .next").click(function(){
+				Games.trigger('owl.next');
+			});
+			$("#Games .prev").click(function(){
+				Games.trigger('owl.prev');
+			});
+
+			// Custom Navigation Events
+			$(".slider .next").click(function(){
+				slider.trigger('owl.next');
+			});
+			$(".slider .prev").click(function(){
+				slider.trigger('owl.prev');
+			});
+
+			$("#account_history").owlCarousel({
+				navigation : true, 
+				slideSpeed : 500,
+				paginationSpeed : 500,
+				singleItem:true
+			});
+		}
+	</script>
+</body>
+</html>
