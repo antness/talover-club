@@ -140,7 +140,7 @@ i.icon{
 /* main styles start */
 #main{
 	width:100%;
-	margin:0 auto 80px;
+	margin:0 ;
 	height:100%;
 	position:relative;
 	overflow-y:auto;
@@ -767,7 +767,7 @@ i.icon{
 /* lightbox styles end */
 /* footer styles start */
 #footer{
-	margin:-60px 0 0;
+	margin:-20px 0 0;
 	position:absolute;
 	height:60px;
 	width:100%;
@@ -1257,7 +1257,7 @@ i.icon{
 	display: none;
 }
 
-#main {
+#main_cont {
 	position: relative;
 }
 
