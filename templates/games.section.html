@@ -1,0 +1,18 @@
+<div class="container">
+	<header id="header">
+		<nav id="nav">
+			<a href="javascript:void(0)" id="btn_bar"></a>
+			<ul>
+				<li ng-repeat="c in categories"><a href="" ui-sref="root.section.category({category: c.id})">{{ c.name }}</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div id="main">
+		<ui-view></ui-view>
+		<ul class="tools">
+			<li><a href="#" class="back-to-top">Up</a></li>
+			<li><a href="#" class="full-screen">Full Screen</a></li>
+		</ul>
+	</div>
+</div>

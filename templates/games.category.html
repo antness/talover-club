@@ -1,0 +1,15 @@
+<div class="scroll-holder" nn-custom-scrollbar kostyl1>
+	<ul class="games-list">
+		<li ng-repeat="game in games">
+			<a ui-sref="root.game({game: game.id})">
+				<img ng-src="{{game.image_file}}" alt="{{game.name}}" width="191" height="191" title="{{game.name}}">
+				<span class="new" ng-if="game.is_new == '1'">New</span>
+				<span data-bind="text:title">{{game.name}}</span>
+				<dl class="info" ng-if="0">
+					<dt>JackPot:</dt>
+					<dd>$134 500.43</dd>
+				</dl>
+			</a>
+		</li>
+	</ul>
+</div>

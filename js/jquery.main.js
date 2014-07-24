@@ -40,7 +40,7 @@ function clearInputs(){
 };
 
 function slide_bar(){
-
+return;
 	$('#btn_bar').on('click',function(){
 		$('#TopBar').slideToggle();
 		$('.slider_block').slideUp().removeClass('active');
@@ -58,7 +58,7 @@ function slide_bar(){
 }
 
 function BarTabs() {
-
+return;
 	$("#TopBar .toggle").on('click',function(){
 		var slider = $(this).data('toggle');
 		$(this).parent().siblings().find('a').removeClass('active');
@@ -71,7 +71,7 @@ function BarTabs() {
 }
 
 function ShowHide(){
-
+return;
 	if($('.slider_block').hasClass('active')){
 		$('#ShowBar').hide();
 		$('#HideBar').show();

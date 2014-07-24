@@ -1104,7 +1104,7 @@ i.icon{
 }
 
 #TopBar ul.f-right li a#HideBar {
-	display: none;
+	/*display: none;*/
 }
 #TopBar ul.f-right li a#HideBar i {
 	border-width: 0 3px 5px 3px;
@@ -1257,7 +1257,7 @@ i.icon{
 	display: none;
 }
 
-#main_cont {
+#main_container {
 	position: relative;
 }
 
@@ -1720,3 +1720,7 @@ i.icon{
 	.main-section .col-2{width:40%;}
 }
 /* media styles end */
+
+.game-holder {
+    height: 100%;
+}

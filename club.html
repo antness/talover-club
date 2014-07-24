@@ -1,939 +1,356 @@
 <!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=1024">
-	<title>The Club</title>
-	<link rel="stylesheet" href="css/all.css" type="text/css">
-	<!--[if lt IE 9]>
-		<link rel="stylesheet" href="css/ie.css" type="text/css">
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<!--[if gte IE 9]>
-	  <style type="text/css">
-	    .gradient {
-	       filter: none;
-	    }
-	  </style>
-	<![endif]-->
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	
-	<script type="text/javascript">
-		var require = {
-			baseUrl: "js",
-			paths:{
-				ko:'lib/knockoutjs/js/knockout-2.2.1',
-				jquery: 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min',
-				scrollTo: 'scrollTo',
-				scroll: 'custom-scroll',
-				fullscreen: 'fullscreen'
-			}
-		};
-	</script>
-	<script type="text/javascript" src="js/jquery.main.js"></script>
-	<script data-main="main" src="js/lib/requirejs/js/require.js" type="text/javascript"></script>
-</head>
-<body>
-	<section id="TopBar">
-		<nav class="clearfix gradient">		
-			<ul class="clearfix f-left">
-				<li><a data-toggle="#CasinoJackPots" class="toggle" id="btnJackPots" href="javascript:void(0)">Casino JackPots<i></i></a></li>
-				<li class="line"></li>
-				<li><a data-toggle="#CurrentWinners" class="toggle" href="javascript:void(0)">Current Winners<i></i></a></li>
-				<li class="line"></li>
-				<li><a data-toggle="#TopWinners" class="toggle" href="javascript:void(0)">Top Winners<i></i></a></li>
-				<li class="line"></li>
-				<li><a data-toggle="#TopGames"  class="toggle" href="javascript:void(0)">Top Games<i></i></a></li>
-				<li class="line"></li>
-			</ul>
-			<ul class="clearfix f-right">
-				<li class="info">Player: Administrator</li>
-				<li class="info">Bet: 776533299752</li>
-				<li>13:46:09 GMT+4</li>
-				<li>
-					<a id="ShowBar" data-toggle="#CasinoJackPots" class="toggle" href="javascript:void(0)">Show Bar<i></i></a>
-					<a id="HideBar" href="javascript:void(0)">Hide Bar<i></i></a>
-				</li>
-				<li class="line"></li>
-				<li id="exit"><a href="javascript:void(0)">Quit Game</a></li>
-			</ul>
-		</nav>
+<html lang="en" ng-app="theclub">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=1024">
+		<title>The Club</title>
+		<link rel="stylesheet" href="css/all.css" type="text/css">
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="css/ie.css" type="text/css">
+			<script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
+		<![endif]-->
+		<!--[if gte IE 9]>
+			<style type="text/css">
+				.gradient {
+					filter: none;
+				}
+			</style>
+		<![endif]-->
 
-		<div id="CasinoJackPots" class="slider_block">
-			<div  class="slider">
-				<div class="owl-carousel">
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
+		<script type="text/javascript">
+			var init = {"user":{"username":"Scukerman","balance":0},"sections":[{"title":"\u041d\u0430\u0441\u0442\u043e\u043b\u044c\u043d\u044b\u0435","subtitle":"section.casino.subtitle","name":"CASINO","games":[{"id":"344","title":"Euro Roulette","filtersValues":[{"id":"2","position":"2"}],"imageUrl":"game344_main_1392193944.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"368","title":"VIP Roulette","filtersValues":[{"id":"2","position":"9"}],"imageUrl":"game368_main_1392193963.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"369","title":"Zoom Roulette","filtersValues":[{"id":"2","position":"1"}],"imageUrl":"game369_main_1392194071.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"370","title":"Jacks or Better","filtersValues":[{"id":"2","position":"10"}],"imageUrl":"game370_main_1392194096.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"371","title":"Bonus Poker","filtersValues":[{"id":"2","position":"6"}],"imageUrl":"game371_main_1392194114.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"372","title":"Joker Poker","filtersValues":[{"id":"2","position":"7"}],"imageUrl":"game372_main_1392194135.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"373","title":"2 Wild","filtersValues":[{"id":"2","position":"8"}],"imageUrl":"game373_main_1392194156.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"374","title":"Euro Black Jack","filtersValues":[{"id":"2","position":"3"}],"imageUrl":"game374_main_1392194269.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"375","title":"American BlackJack","filtersValues":[{"id":"2","position":"4"}],"imageUrl":"game375_main_1392194335.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"376","title":"1 Deck BlackJack","filtersValues":[{"id":"2","position":"5"}],"imageUrl":"game376_main_1392194360.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null}],"filters":[{"title":"section.casino.games","valueList":[{"id":"2","title":"section.casino.games.all"}]}]},{"title":"\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0435","subtitle":"section.mobile.subtitle","name":"MOBILE","games":[{"id":"503","title":"Gonzos Touch","filtersValues":[{"id":"5","position":"1"}],"imageUrl":"game503_main_1392643296.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"559","title":"Gonzos Quest","filtersValues":[],"imageUrl":"game559_main_1392702369.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"560","title":"Flowers","filtersValues":[{"id":"5","position":"2"}],"imageUrl":"game560_main_1392702436.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"561","title":"Jack Hammer","filtersValues":[{"id":"5","position":"3"}],"imageUrl":"game561_main_1392702487.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"562","title":"Jack Hammer2","filtersValues":[{"id":"5","position":"4"}],"imageUrl":"game562_main_1392702530.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"563","title":"Mythic Maiden","filtersValues":[{"id":"5","position":"5"}],"imageUrl":"game563_main_1392702575.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"564","title":"Victorious","filtersValues":[{"id":"5","position":"6"}],"imageUrl":"game564_main_1392702642.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"565","title":"Subtopia","filtersValues":[{"id":"5","position":"7"}],"imageUrl":"game565_main_1392702678.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"566","title":"Starburst","filtersValues":[{"id":"5","position":"8"}],"imageUrl":"game566_main_1392702718.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"567","title":"Frankenstein","filtersValues":[{"id":"5","position":"9"}],"imageUrl":"game567_main_1392702752.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"568","title":"Fruit Shop","filtersValues":[{"id":"5","position":"10"}],"imageUrl":"game568_main_1392702817.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"569","title":"BlackJack","filtersValues":[{"id":"5","position":"12"}],"imageUrl":"game569_main_1392702863.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"570","title":"Angler","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"571","title":"Dark Lord","filtersValues":[{"id":"5","position":"34"}],"imageUrl":"game571_main_1392703055.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"572","title":"269","filtersValues":[],"imageUrl":"game572_main_1392703093.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"573","title":"Purple Pills","filtersValues":[{"id":"5","position":"26"}],"imageUrl":"game573_main_1392703150.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"574","title":"Wild Cherry","filtersValues":[{"id":"5","position":"30"}],"imageUrl":"game574_main_1392703213.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"575","title":"Under the Sea","filtersValues":[{"id":"5","position":"29"}],"imageUrl":"game575_main_1392703291.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"576","title":"The Spin Saloon","filtersValues":[{"id":"5","position":"27"}],"imageUrl":"game576_main_1392703368.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"577","title":"Icy Wild","filtersValues":[{"id":"5","position":"28"}],"imageUrl":"game577_main_1392703446.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"578","title":"Havana Heat","filtersValues":[{"id":"5","position":"31"}],"imageUrl":"game578_main_1392703503.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"579","title":"Chinese Fortune","filtersValues":[{"id":"5","position":"32"}],"imageUrl":"game579_main_1392703563.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"580","title":"Legend of Beowulf","filtersValues":[{"id":"5","position":"33"}],"imageUrl":"game580_main_1392703613.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"581","title":"Adventure Palace","filtersValues":[{"id":"5","position":"18"}],"imageUrl":"game581_main_1392703685.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"582","title":"Avalon","filtersValues":[{"id":"5","position":"20"}],"imageUrl":"game582_main_1392703729.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"583","title":"BlackJack","filtersValues":[],"imageUrl":"game583_main_1392703786.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"584","title":"Burning Desire","filtersValues":[{"id":"5","position":"21"}],"imageUrl":"game584_main_1392703872.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"585","title":"Deck the Halls","filtersValues":[{"id":"5","position":"25"}],"imageUrl":"game585_main_1392704967.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"586","title":"Jacks of Better","filtersValues":[{"id":"5","position":"24"}],"imageUrl":"game586_main_1392705031.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"587","title":"Agent Jane","filtersValues":[{"id":"5","position":"23"}],"imageUrl":"game587_main_1392705136.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"588","title":"Ladies Rate","filtersValues":[{"id":"5","position":"22"}],"imageUrl":"game588_main_1392705188.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"590","title":"Roulette","filtersValues":[{"id":"5","position":"11"}],"imageUrl":"game590_main_1392705406.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"591","title":"Spring","filtersValues":[{"id":"5","position":"19"}],"imageUrl":"game591_main_1392705442.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"592","title":"Tally Ho","filtersValues":[{"id":"5","position":"13"}],"imageUrl":"game592_main_1392705482.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"593","title":"Thunderstruck","filtersValues":[{"id":"5","position":"15"}],"imageUrl":"game593_main_1392705527.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"594","title":"Tomb","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"595","title":"Roullete","filtersValues":[{"id":"5","position":"16"}],"imageUrl":"game595_main_1392705802.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"596","title":"Lucky7","filtersValues":[{"id":"5","position":"17"}],"imageUrl":"game596_main_1392705845.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"597","title":"Safari Sam","filtersValues":[],"imageUrl":"game597_main_1392705891.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"598","title":"Rooks Revenge","filtersValues":[{"id":"5","position":"14"}],"imageUrl":"game598_main_1392705947.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null}],"filters":[{"title":"section.mobile.games","valueList":[{"id":"5","title":"section.mobile.games.all"}]}]},{"title":"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u0418\u0433\u0440\u044b","subtitle":"section.download.subtitle","name":"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u0413\u0430\u043c\u0438\u043d\u0430\u0442\u043e\u0440","games":[{"id":"864","title":"Android Gaminator","filtersValues":[{"id":"9","position":"1"}],"imageUrl":"game864_main_1392983094.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null}],"filters":[{"title":"section.download.games","valueList":[{"id":"9","title":"section.download.games.all"}]}]},{"title":"\u0418\u043d\u0442\u0435\u0440\u043d\u0435\u0442 \u041c\u0430\u0433\u0430\u0437\u0438\u043d\u044b","subtitle":"section.internet.subtitle","name":"internet","games":[{"id":"346","title":"Pit-Box&Finstrum","filtersValues":[{"id":"4","position":"1"}],"imageUrl":"game346_main_1392982338.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null}],"filters":[{"title":"section.internet.fakegames","valueList":[{"id":"4","title":"section.internet.fakegames.all"}]}]},{"title":"\u0418\u0433\u0440\u044b The-Club","subtitle":"section.theclub.subtitle","name":"pc","games":[{"id":"866","title":"test","filtersValues":[],"imageUrl":"","isNew":true,"supports":{"ios":true,"android":true},"useJackpot":false,"jackpot":null}],"filters":[{"title":"section.theclub.games","valueList":[{"id":"8","title":"section.theclub.games.all"}]}]},{"title":"\u0418\u0433\u0440\u044b Gaminator","subtitle":"","name":"GAMINATOR","games":[{"id":"345","title":"LLC","filtersValues":[],"imageUrl":"game345_main_1392194597.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"599","title":"The Money Game","filtersValues":[{"id":"3","position":"1"}],"imageUrl":"game599_main_1392723075.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"600","title":"Dolphin's Pearl","filtersValues":[{"id":"3","position":"2"}],"imageUrl":"game600_main_1392730013.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"601","title":"Unicorn Magic","filtersValues":[{"id":"3","position":"7"}],"imageUrl":"game601_main_1392730097.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"602","title":"Pharaoh's Gold II","filtersValues":[{"id":"3","position":"25"}],"imageUrl":"game602_main_1392730111.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"603","title":"Queen of Hearts","filtersValues":[{"id":"3","position":"30"}],"imageUrl":"game603_main_1392730124.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"604","title":"Beetle Mania","filtersValues":[{"id":"3","position":"42"}],"imageUrl":"game604_main_1392730133.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"605","title":"Hot Target","filtersValues":[{"id":"3","position":"44"}],"imageUrl":"game605_main_1392730144.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"606","title":"Dynasty Of Myng ","filtersValues":[{"id":"3","position":"45"}],"imageUrl":"game606_main_1392730218.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"607","title":"Banana Splash","filtersValues":[{"id":"3","position":"46"}],"imageUrl":"game607_main_1392730230.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"608","title":"King Of Cards","filtersValues":[{"id":"3","position":"43"}],"imageUrl":"game608_main_1392730355.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"609","title":"Pharaoh's Gold III","filtersValues":[{"id":"3","position":"40"}],"imageUrl":"game609_main_1392730370.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"610","title":"Polar Fox","filtersValues":[{"id":"3","position":"41"}],"imageUrl":"game610_main_1392730380.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"611","title":"Royal Treasures","filtersValues":[{"id":"3","position":"39"}],"imageUrl":"game611_main_1392730388.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"612","title":"-Wonderful Flute","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"613","title":"Lucky Lady's Charm 'Deluxe'","filtersValues":[{"id":"3","position":"37"}],"imageUrl":"game613_main_1392730458.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"614","title":"Crazy Monkey","filtersValues":[{"id":"3","position":"38"}],"imageUrl":"game614_main_1392730471.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"615","title":"Beetle Mania 'Deluxe'","filtersValues":[{"id":"3","position":"36"}],"imageUrl":"game615_main_1392730484.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"616","title":"Dolphin's Pearl 'Deluxe'","filtersValues":[{"id":"3","position":"35"}],"imageUrl":"game616_main_1392730493.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"617","title":"Resident","filtersValues":[{"id":"3","position":"34"}],"imageUrl":"game617_main_1392730515.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"618","title":"Lucky Haunter","filtersValues":[{"id":"3","position":"33"}],"imageUrl":"game618_main_1392730527.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"619","title":"Just Jewels","filtersValues":[{"id":"3","position":"32"}],"imageUrl":"game619_main_1392730640.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"620","title":"Sizzling Hot","filtersValues":[{"id":"3","position":"31"}],"imageUrl":"game620_main_1392730629.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"621","title":"Columbus","filtersValues":[{"id":"3","position":"27"}],"imageUrl":"game621_main_1392730566.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"622","title":"Book of Ra","filtersValues":[{"id":"3","position":"29"}],"imageUrl":"game622_main_1392730576.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"623","title":"Just Jewels 'Deluxe'","filtersValues":[{"id":"3","position":"28"}],"imageUrl":"game623_main_1392730606.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"624","title":"Sizzling Hot 'Deluxe'","filtersValues":[{"id":"3","position":"26"}],"imageUrl":"game624_main_1392730614.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"625","title":"Columbus 'Deluxe' ","filtersValues":[{"id":"3","position":"24"}],"imageUrl":"game625_main_1392730725.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"626","title":"Book of Ra 'Deluxe'","filtersValues":[{"id":"3","position":"22"}],"imageUrl":"game626_main_1392730734.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"627","title":"Fruit Cocktail","filtersValues":[{"id":"3","position":"23"}],"imageUrl":"game627_main_1392730748.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"628","title":"Keks","filtersValues":[{"id":"3","position":"14"}],"imageUrl":"game628_main_1392730763.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"629","title":"Bananas Go Bahamas","filtersValues":[{"id":"3","position":"21"}],"imageUrl":"game629_main_1392730776.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"630","title":"Oliver's Bar","filtersValues":[{"id":"3","position":"20"}],"imageUrl":"game630_main_1392730785.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"631","title":"Marco Polo","filtersValues":[{"id":"3","position":"19"}],"imageUrl":"game631_main_1392730904.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"632","title":"Sharky","filtersValues":[{"id":"3","position":"18"}],"imageUrl":"game632_main_1392730920.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"633","title":"Riches Of India","filtersValues":[{"id":"3","position":"16"}],"imageUrl":"game633_main_1392730930.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"634","title":"Gryphon's Gold ","filtersValues":[{"id":"3","position":"17"}],"imageUrl":"game634_main_1392730940.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"635","title":"Secret Forest","filtersValues":[{"id":"3","position":"15"}],"imageUrl":"game635_main_1392730949.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"636","title":"Always Hot","filtersValues":[{"id":"3","position":"11"}],"imageUrl":"game636_main_1392730957.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"637","title":"Ultra Hot","filtersValues":[{"id":"3","position":"10"}],"imageUrl":"game637_main_1392730966.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"638","title":"Threee!","filtersValues":[{"id":"3","position":"13"}],"imageUrl":"game638_main_1392730987.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"639","title":"Lord of the Ocean 'Deluxe'","filtersValues":[{"id":"3","position":"12"}],"imageUrl":"game639_main_1392731014.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"640","title":"Xtra Hot 'Deluxe'","filtersValues":[{"id":"3","position":"9"}],"imageUrl":"game640_main_1392731023.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"641","title":"Jewels 4 All","filtersValues":[{"id":"3","position":"8"}],"imageUrl":"game641_main_1392731044.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"642","title":"Angry Birds","filtersValues":[{"id":"3","position":"3"}],"imageUrl":"game642_main_1392731057.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"643","title":"Sharky 'Deluxe'","filtersValues":[{"id":"3","position":"6"}],"imageUrl":"game643_main_1392731072.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"644","title":"Golden Planet","filtersValues":[{"id":"3","position":"4"}],"imageUrl":"game644_main_1392731085.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"645","title":"First Class Traveller","filtersValues":[{"id":"3","position":"5"}],"imageUrl":"game645_main_1392731094.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"646","title":"Aztec Gold","filtersValues":[{"id":"3","position":"56"}],"imageUrl":"game646_main_1392732272.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"647","title":"Slot-o-pol","filtersValues":[{"id":"3","position":"55"}],"imageUrl":"game647_main_1392732279.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"648","title":"Champagne","filtersValues":[{"id":"3","position":"47"}],"imageUrl":"game648_main_1392732287.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"649","title":"Slot-o-pol Dlx","filtersValues":[{"id":"3","position":"48"}],"imageUrl":"game649_main_1392732294.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"650","title":"Dolphin Treasure","filtersValues":[{"id":"3","position":"52"}],"imageUrl":"game650_main_1392732309.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"651","title":"Queen of the Nile","filtersValues":[{"id":"3","position":"51"}],"imageUrl":"game651_main_1392732318.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"652","title":"Queen of the Nile II","filtersValues":[{"id":"3","position":"49"}],"imageUrl":"game652_main_1392732325.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"653","title":"Choy Sun Doa","filtersValues":[{"id":"3","position":"50"}],"imageUrl":"game653_main_1392732338.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"654","title":"5Dragons","filtersValues":[{"id":"3","position":"54"}],"imageUrl":"game654_main_1392732348.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"655","title":"50Lions","filtersValues":[{"id":"3","position":"53"}],"imageUrl":"game655_main_1392732355.png","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"656","title":"---Butterfly","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"657","title":"---Aero","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"658","title":"Auto","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"659","title":"Lion","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"660","title":"Nixterida","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"661","title":"SeaWorld","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"662","title":"Snake","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"663","title":"Costa del Cash","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"664","title":"Fruits & Royals","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"665","title":"Fruit Sensation","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"666","title":"Hot Chance ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"667","title":"Moorhuhn","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"668","title":"Mystic Secret","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"669","title":"Rex","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"670","title":"Roaring Forties","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"671","title":"SecretElixir","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"672","title":"Ultra Hot 'Deluxe'","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"673","title":"Katana","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"674","title":"Garage","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"675","title":"Angry Birds Christmas","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"676","title":"Crazy Monkey 2","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"677","title":"Sweet Life","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"678","title":"Sweet Life 2","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"679","title":"Rock Climber","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"680","title":"Pirate","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"681","title":"Pirate2","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"682","title":"Island","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"683","title":"Island2","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"684","title":"Gnome","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"685","title":"Fruit Cocktail 2","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"686","title":"Robinson","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"687","title":"Bratva","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"688","title":"Gold Of Party","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"689","title":"Around The World","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"690","title":"Bazar","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"691","title":"Angry Birds Christmas BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"692","title":"Beetle Mania 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"693","title":"Book of Ra 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"694","title":"Columbus 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"695","title":"Costa del Cash BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"696","title":"Dolphin's Pearl 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"697","title":"Fruit Sensation BTD ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"698","title":"Fruits & Royals BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"699","title":"Hot Chance BTD ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"700","title":"Just Jewels 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"701","title":"Katana BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"702","title":"Lucky Lady's Charm 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"703","title":"Lord of the Ocean 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"704","title":"Mystic Secret BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"705","title":"Rex BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"706","title":"Roaring Forties BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"707","title":"Secret Elixir BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"708","title":"Sharky 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"709","title":"Sizzling Hot 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"710","title":"Ultra Hot 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"711","title":"Xtra Hot 'Deluxe' BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"712","title":"Bananas Go Bahamas BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"713","title":"Banana Splash BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"714","title":"Beetle Mania BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"715","title":"Book of Ra BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"716","title":"Columbus BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"717","title":"Dolphin's Pearl BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"718","title":"Dynasty Of Myng BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"719","title":"First Class Traveller BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"720","title":"Golden Planet BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"721","title":"Gryphon's Gold BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"722","title":"Hot Target BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"723","title":"Jewels 4 All BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"724","title":"Just Jewels BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"725","title":"King Of Cards BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"726","title":"Lucky Lady's Charm BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"727","title":"Marco Polo BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"728","title":"The Money Game BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"729","title":"Oliver's Bar BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"730","title":"Pharaoh's Gold II BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"731","title":"Pharaoh's Gold III BTD ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"732","title":"Polar Fox BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"733","title":"Queen of Hearts BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"734","title":"Riches Of India BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"735","title":"Royal Treasures BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"736","title":"Secret Forest BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"737","title":"Sharky BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"738","title":"Sizzling Hot BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"739","title":"Threee! BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"740","title":"Unicorn Magic BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"741","title":"Wonderful Flute BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"742","title":"Angry Birds BTD","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"743","title":"Anubis Secret","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"744","title":"Dream of Knight","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"745","title":"Lucky Magic","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"746","title":"The Big Money Scent","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"747","title":"Submarine Adventure","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"748","title":"Admiral","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"749","title":"Always Fruits","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"750","title":"Bells on Fire","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"751","title":"Blue Dolphin","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"752","title":"Book of Aztec","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"753","title":"Book of Fortune","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"754","title":"Casanova","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"755","title":"Cool Diamonds II ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"756","title":"Deuces Wild","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"757","title":"Dragons Pearl","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"758","title":"Hot 7","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"759","title":"Hot Diamonds","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"760","title":"Hot Neon","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"761","title":"Hot Scatter","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"762","title":"Hot Star","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"763","title":"Hot Twenty","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"764","title":"Jacks or Better","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"765","title":"Joker Card Poker","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"766","title":"Lady Luck","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"767","title":"Magic Idol","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"768","title":"Merry Fruits","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"769","title":"Multi-Card Win","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"770","title":"Multi-Card Win Triple","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"771","title":"Party Time","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"772","title":"Twenty Seven","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"773","title":"Wild 7","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"774","title":"Wild Diamonds","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"775","title":"Wild Shark","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"776","title":"Wild Stars","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"777","title":"3 Card Poker Gold","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"778","title":"5 Reel Drive","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"779","title":"Aces & Faces Power Poker","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"780","title":"Alaskan Fishing","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"781","title":"Arctic Fortune","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"782","title":"Atlantic City Blackjack Gold","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"783","title":"Baccarat","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"784","title":"Big Kahuna ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"785","title":"Break Da Bank","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"786","title":"Carnaval","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"787","title":"Cashville","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"788","title":"Cashville","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"789","title":"Double Double Bonus Poker","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"790","title":"Euro Roulette Gold","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"791","title":"French Roulette","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"792","title":"Hell Boy ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"793","title":"High Limit Baccarat ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"794","title":"hohoho","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"795","title":"Joker Power Poker","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"796","title":"Ladies Nite","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"797","title":"Loaded","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"798","title":"Mermaids Millions","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"799","title":"Multi-Hand 3 Card Poker Gold","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"800","title":"Aces And Eights Poker","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"801","title":"All American Poker","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"802","title":"Avalon","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"803","title":"Bonus Poker","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"804","title":"Bonus Poker Deluxe","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"805","title":"Break Da Bank Again","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"806","title":"Classic Blackjack Gold","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"807","title":"Deck The Halls","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"808","title":"Double Bonus Poker","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"809","title":"Good To Go","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"810","title":"Hitman","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"811","title":"Supe It Up","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"812","title":"Tomb Raider II","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"813","title":"Spring Break","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"814","title":"Stash of the Titans","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"815","title":"Sterling Silver 3D","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"816","title":"Tally Ho","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"817","title":"Tens or Better","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"818","title":"Thunder Struck","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"819","title":"Thunder Struck II","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"820","title":"Tomb Raider","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"821","title":"Agent Jane Blonde","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"822","title":"Alaxe In Zombieland","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"823","title":"Booty Time ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"824","title":"Drone Wars","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"825","title":"Great Griffin","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"826","title":"Immortal Romance","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"827","title":"Star scape","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"828","title":"Sure Win","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"829","title":"Tiger vs Bear","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"830","title":"Wheel Of Wealth","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"831","title":"Premier Roulette DE","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"832","title":"Asian Beauty","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"833","title":"Crazy Chameleons","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"834","title":"Dino Might","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"835","title":"Eagles Wings","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"836","title":"Genies Gems","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"837","title":"Gold Factory","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"838","title":"Hot Ink","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"839","title":"Lady In Red","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"840","title":"Monte-Carlo Riches ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"841","title":"Oriental Fortune","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"842","title":"Retro Reels","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"843","title":"Age Of Discovery","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"844","title":"Big Break","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"845","title":"Cabin Fever","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"846","title":"Chain Mail","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"847","title":"Dog Father","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"848","title":"Halloweenies","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"849","title":"Harveys","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"850","title":"Prime Property","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"851","title":"Santa Paws","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"852","title":"The Osbournes","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"853","title":"The Rat Pack","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"854","title":"Totem Treasure","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"855","title":"Witches Wealth","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"856","title":"Star scape","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"857","title":"Untamed Wolf Pack ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"858","title":"Untamed Giant Panda","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"859","title":"Untamed Bengal Tiger","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"860","title":"Max Damage ","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"861","title":"Girls with Guns","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"862","title":"Battlestar Galactica","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null},{"id":"863","title":"Break Away","filtersValues":[],"imageUrl":"","isNew":false,"supports":{"ios":false,"android":false},"useJackpot":false,"jackpot":null}],"filters":[{"title":"section.gaminator.games","valueList":[{"id":"3","title":"section.gaminator.games.all"}]}]}],"languages":[{"title":"\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439","value":"en","enabled":true},{"title":"\u0420\u0443\u0441\u0441\u043a\u0438\u0439","value":"ru","enabled":true}],"params":{"language":"ru","currency":"emp","denomination":null},"transactions":[],"user_agent":{"browser":"Firefox","version":"30.0","mobile":false,"platform":"Linux"}};
+		</script>
 
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-mocks/angular-mocks.js"></script>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script src="bower_components/ui-router-extras/release/ct-ui-router-extras.min.js"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+		<script src="bower_components/underscore/underscore.js"></script>
 
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
+		<script src="js/angular/directives/customScrollbar.js"></script>
+		<script src="js/angular/directives/topBar.js"></script>
+		<script src="js/angular/directives/owlCarousel.js"></script>
+		<script src="js/angular/routes/games.js"></script>
 
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
+		<script src="js/angular/controllers/cashbox.js"></script>
+		<script src="js/angular/controllers/settings.js"></script>
+		<script src="js/angular/controllers/topBar.js"></script>
 
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
+		<script src="js/angular/application.js"></script>
+		<script type="text/javascript" src="js/jquery.main.js"></script>
+		<script src="js/custom-scroll.js"></script>
 
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
+	</head>
 
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>5 778 965.02</p>
-								<span class="game_name">Viking`s Treasure</span>
-							</span>
-						</a>
-					</div>
-
-				</div>
-				<div class="customNavigation">
-					<a class="btn prev"></a>
-					<a class="btn next"></a>
-				</div>
-			</div>
-		</div>
-
-		<div id="CurrentWinners" class="slider_block">
-
-			<div class="slider">
-				<div class="owl-carousel">
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-				</div>
-				<div class="customNavigation">
-					<a class="btn prev"></a>
-					<a class="btn next"></a>
-				</div>
-			</div><!--END .Winners-->
-		</div>
-
-		<div id="TopWinners" class="slider_block">	
-			<div class="slider">
-				<div class="owl-carousel">
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-							<span class="text_block">
-								<p>988.04</p>
-								<span class="game_name">Viking`s Treasure</span>
-								<span class="player"><i></i>********7682</span>
-							</span>
-						</a>
-					</div>
-				</div>
-				<div class="customNavigation">
-					<a class="btn prev"></a>
-					<a class="btn next"></a>
-				</div>
-			</div><!--END .Winners-->
-		</div><!--END #TopWinners-->
-
-		<div id="TopGames" class="slider_block">
-
-			<div id="Games">
-				<div class="owl-carousel">
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-
-					<div class="item">
-						<a href="#">
-							<span class="img_block"><img src="images/pic_1.png" alt=""></span>
-						</a>
-					</div>
-				</div>
-				<div class="customNavigation">
-					<a class="btn prev"></a>
-					<a class="btn next"></a>
-				</div>
-			</div>
-		</div><!-- #TopGames-->
-	</section><!--END #TopBar-->
-
-	<section id="main_cont">
-		<div id="wrapper" class="clearfix">
-			<!--ko with:sections.current -->
-			<!--header starts-->
-
-			<div id="popup_game">
-				<iframe src="banner.html" width="100%" height="700px" align="left">
-					
-		 		</iframe>
-			</div>
-
-			<header id="header">
-				<nav id="nav">
-					<a id="btn_bar" href="javascript:void(0)"></a>
-					<ul>
-						<!--ko foreach:customFilters-->
-						<li><a href="#" data-bind="text: title, click: $parent.customFilter, css: {active: active}"></a></li>
-						<!--/ko-->
-						<!--ko with:filter-->
-						<!--ko foreach:valueList-->
-						<li><a href="#" data-bind="text: title, click: $parent.select, css: {active: active}"></a></li>
-						<!--/ko-->
-						<!--/ko-->
-					</ul>
-				</nav>
-			</header>
-			<!--header ends-->
-			<!--main starts-->
-			<div id="main">
-				<div class="scroll-holder">
-					<ul class="games-list" data-bind="foreach:filteredGames">
-						<li>
-							<a href="#" data-bind="click: launch">
-								<img src="images/img-game-1.jpg" alt="" width="191" height="191">
-								<!--ko if:isNew-->
-								<span class="new">New</span>
-								<!--/ko-->
-								<span data-bind="text:title"></span>
-								<dl class="info">
-									<dt>JackPot:</dt>
-									<dd>$134 500.43</dd>
-								</dl>
-							</a>
-						</li>
-					</ul>
-				</div>
-				<ul class="tools">
-					<li><a href="#" class="back-to-top">Up</a></li>
-					<li><a href="#" class="full-screen">Full Screen</a></li>
+	<body>
+		<section id="TopBar" top-bar ng-controller="TopBarCtrl">
+			<nav class="clearfix gradient">
+				<ul class="clearfix f-left">
+					<li ng-repeat-start="page in bar.pages">
+						<a class="toggle" href="" ng-class="{active: page === bar.activePage}" ng-click="bar.clickPageBtn(page)">{{page.title}}<i></i></a>
+					</li>
+					<li class="line" ng-repeat-end></li>
 				</ul>
-			</div>
-			<!--main ends-->
-			<!--/ko-->
-				<!--ko with: cashbox-->
+				<ul class="clearfix f-right">
+					<li class="info">Player: Administrator</li>
+					<li class="info">Bet: 776533299752</li>
+					<li>13:46:09 GMT+4</li>
+					<li>
+						<tb-toggle-button ng-model="bar.visible"></tb-toggle-button>
+					</li>
+					<li class="line"></li>
+					<li id="exit"><a href="javascript:void(0)">Quit Game</a></li>
+				</ul>
+			</nav>
 
-			<div class="lightbox settings_block" data-bind="popup: active">
-				<div id="tabs" class="clearfix">
-					<div class="f-left">
-						<ul>        
-							<li><a href="#tabs-1">Пополнить Счет</a></li>
-							<li><a href="#tabs-2">Получить выигрыш</a></li>
-							<li><a href="#tabs-3">История счета</a></li>
-							<li><a href="#tabs-4">Настройки</a></li>
-							<li><a data-bind="click: function(){toggle(false);}">Выйти</a></li>
-						</ul>
+			<div class="slider_block" top-bar-page page-title="{{section.title}}" ng-repeat="section in sections">
 
-						<ul class="language_list">
-							<li><a class="ru" href="javascript:void(0)"></a></li>
-							<li><a class="usa" href="javascript:void(0)"></a></li>
-							<li><a class="ita" href="javascript:void(0)"></a></li>
-						</ul>
+				<div>
+					<div class="owl-carousel" owl-carousel items="section.games">
+
+						<div class="item" ng-repeat="game in section.games">
+							<a href="#"> <span class="img_block"><img ng-src="{{game.lobby_image_file}}" alt="{{game.name}}"></span> </a>
+						</div>
+
 					</div>
-					<div class="f-right">
-						<div id="tabs-1">
-							<h3>Пополнить счет, используя PIN-код</h3>
-							<p>
-								Вы можете пополнить свой счет используя PIN-код системы GameAgent. Обратитесь к своему Агенту (Кассиру), чтобы приобрести PIN-код.
-							</p>
-							<p>
-								Следуйте инструкциям. Средства будут зачислены на счет автоматически.
-							</p>
+					<div class="customNavigation">
+						<a class="btn prev"></a> <a class="btn next"></a>
+					</div>
+				</div>
+			</div>
+			<!-- #TopGames-->
+		</section>
 
-							<form>
+		<section id="main_container">
+			<div class="clearfix" id="wrapper" ui-view></div>
+		</section>
+
+		<footer id="footer">
+			<div class="user-info">
+				<a class="userpic-holder" href=""><img src="images/img-userpic-1.png" alt="" width="52" height="52"></a>
+				<dl>
+					<dt>PIN Код Игрока:</dt>
+					<dd>8854-6658-3325</dd>
+				</dl>
+			</div>
+			<div class="user-options">
+				<div class="balance-section">
+					<strong class="amount">$ 75 884.04</strong>
+					<a class="btn-cashier action-cashbox" href="" ng-click="lightbox.toggleCashbox()">Касса</a>
+				</div>
+				<a class="btn-play-casino" ng-repeat="section in sections" ui-sref="root.section({section: section.id})">
+					<span>{{ section.title }}</span>
+					Играть в {{ section.title }}
+				</a>
+			</div>
+			<a class="btn-settings action-settings" ng-click="lightbox.toggleSettings()"><span>Настройки</span></a>
+		</footer>
+
+		<!-- NEW CASHBOX & SETTINGS POPUP -->
+		<div id="cashbox" class="lightbox settings_block" ng-controller="Cashbox">
+			<div id="tabs" class="clearfix">
+				<div class="f-left">
+					<ul>
+						<li><a href="#tabs-1">Пополнить Счет</a></li>
+						<li><a href="#tabs-2">Получить выигрыш</a></li>
+						<li><a href="#tabs-3">История счета</a></li>
+						<li class="action-settings"><a href="#tabs-4">Настройки</a></li>
+						<li><a ng-click="closePopup($event)">Выйти</a></li>
+					</ul>
+
+					<ul class="language_list">
+						<li><a class="ru" href="javascript:void(0)"></a></li>
+						<li><a class="usa" href="javascript:void(0)"></a></li>
+						<li><a class="ita" href="javascript:void(0)"></a></li>
+					</ul>
+				</div>
+				<div class="f-right">
+					<div id="tabs-1" ng-controller="CashboxDeposit">
+						<h3>Пополнить счет, используя PIN-код</h3>
+						<p>
+							Вы можете пополнить свой счет используя PIN-код системы GameAgent. Обратитесь к своему Агенту (Кассиру), чтобы приобрести PIN-код.
+						</p>
+						<p>
+							Следуйте инструкциям. Средства будут зачислены на счет автоматически.
+						</p>
+
+						<form ng-submit="request()">
+							<ul>
+								<li>
+									<h4>1. Введите PIN-код</h4>
+
+									<div class="input_field">
+										<input type="text" placeholder="5555 - 5555 - 5555" onfocus="this.placeholder = ''" onblur="this.placeholder = '5555 - 5555 - 5555'" ng-model="code">
+									</div>
+
+								</li>
+
+								<li>
+									<h4>2. Подтвердите ввод</h4>
+
+									<div class="btn_field">
+										<button class="gradient btn_form" type="submit">Пополнить счет</button>
+									</div>
+									<span class="error" ng-show="error">{{ error }}</span>
+								</li>
+							</ul>
+						</form>
+					</div>
+					<div id="tabs-2" ng-controller="CashboxWithdraw">
+						<h3>Получить Выигрыш</h3>
+						<p>Для того, чтобы получить выигрыш, Вам необходимо сформировать запрос на выплату, получить 12-ти значный Код выплаты и обратиться с ним к своему Агенту (Кассиру).</p>
+						<p>Следуйте инструкциям. Средства будут сняты с Вашего счета автоматически.</p>
+
+						<form ng-submit="request()">
+							<ul>
+								<li>
+									<h4>1. Укажите сумму, которую хотите снять со счета</h4>
+
+									<div class="input_field">
+										<input type="text" placeholder="555555555.00" onfocus="this.placeholder = ''" onblur="this.placeholder = '555555555.00'" ng-model="amount">
+									</div>
+									<span class="or">или</span>
+
+									<div class="btn_field">
+										<button class="gradient btn_form" type="button" ng-click="allIn()">Снять Все</button>
+									</div>
+								</li>
+
+								<li>
+									<h4>2. Подтвердите ввод и получите Код выплаты</h4>
+
+									<div class="btn_field">
+										<button class="gradient btn_form" type="submit">Пополнить счет</button>
+									</div>
+									<span class="error" ng-show="error">{{ error }}</span>
+								</li>
+							</ul>
+						</form>
+					</div>
+					<div id="tabs-3" ng-controller="CashboxHistory">
+						<h3>История Счета</h3>
+						<p>
+							Здесь вы можете найти полный ваших запросов на выплату. Каждому запросу соотвествует Код выплаты. Статус запроса меняется автоматически после его обработки.
+						</p>
+						<div id="account_history" class="owl-carousel">
+							<div class="item" ng-repeat="item in history">
 								<ul>
-									<li>
-										<h4>1. Введите PIN-код</h4>
-
-										<div class="input_field">
-											<input type="text" placeholder="5555 - 5555 - 5555" onfocus="this.placeholder = ''" onblur="this.placeholder = '5555 - 5555 - 5555'"  />
-										</div>
-										
-									</li>
-
-									<li>
-										<h4>2. Подтвердите ввод</h4>
-
-										<div class="btn_field">
-											<button class="gradient btn_form" type="submit">Пополнить счет</button>
-										</div>
-										<span class="error">PIN-код не найден!</span>
-									</li>
+									<li>Код Запроса: {{ item.payoutCode }}</li>
+									<li>Сумма: {{ item.amount | number:2 }}</li>
+									<li>Создан: {{ item.created * 1000 | date:'dd/MM/yyyy HH:mm:ss' }}</li>
+									<li>Статус: <span class="green">{{ item.status }}</span></li>
+									<li>Изменен: {{ item.changed * 1000 | date:'dd/MM/yyyy HH:mm:ss' }}</li>
 								</ul>
-							</form>
-						</div>
-						<div id="tabs-2">
-							<h3>Получить Выигрыш</h3>
-							<p>
-								Для того, чтобы получить выигрыш, Вам необходимо сформировать запрос на выплату, получить 12-ти значный Код выплаты и обратиться с ним к своему Агенту (Кассиру).
-							</p>
-							<p>
-								Следуйте инструкциям. Средства будут сняты с Вашего счета автоматически.
-							</p>
-
-							<form>
-								<ul>
-									<li>
-										<h4>1. Укажите сумму, которую хотите снять со счета</h4>
-
-										<div class="input_field">
-											<input type="text" placeholder="555555555.00" onfocus="this.placeholder = ''" onblur="this.placeholder = '555555555.00'"  />
-										</div>
-										<span class="or">или</span>
-
-										<div class="btn_field">
-											<button class="gradient btn_form" type="submit">Снять Все</button>
-										</div>
-									</li>
-
-									<li>
-										<h4>2. Подтвердите ввод и получите Код выплаты</h4>
-
-										<div class="btn_field">
-											<button class="gradient btn_form" type="submit">Пополнить счет</button>
-										</div>
-										<span class="error">Минимальная сумма снятия 500.00!</span>
-									</li>
-								</ul>
-							</form>
-						</div>
-						<div id="tabs-3">
-							<h3>История Счета</h3>
-							<p>
-								Здесь вы можете найти полный ваших запросов на выплату. Каждому запросу соотвествует Код выплаты. Статус запроса меняется автоматически после его обработки.
-							</p>
-							<div id="account_history" class="owl-carousel">
-
-								<div class="item">   
-									<ul>
-										<li>Код Запроса: 5555-5555-5555</li>
-										<li>Сумма: 5555.05</li>
-										<li>Создан: 05-06-14 /12:53</li>
-										<li>Статус: <span class="green">Закрыт</span> </li>
-										<li>Изменен:05-06-14 /12:55</li>
-									</ul> 
-								</div>
-
-								<div class="item">   
-									<ul>
-										<li>Код Запроса: 5555-5555-5555</li>
-										<li>Сумма: 5555.05</li>
-										<li>Создан: 05-06-14 /12:53</li>
-										<li>Статус: <span class="green">Закрыт</span> </li>
-										<li>Изменен:05-06-14 /12:55</li>
-									</ul> 
-								</div>
-
-								<div class="item">   
-									<ul>
-										<li>Код Запроса: 5555-5555-5555</li>
-										<li>Сумма: 5555.05</li>
-										<li>Создан: 05-06-14 /12:53</li>
-										<li>Статус: <span class="green">Закрыт</span> </li>
-										<li>Изменен:05-06-14 /12:55</li>
-									</ul> 
-								</div>
 							</div>
 						</div>
-						<div id="tabs-4">
-							<h3>Настройки</h3>
-							<p>
-								Указанные настройки будут сохранены в Cookies вашего браузера. После очистки Cookies будут действовать настройки “По умолчанию”.
-							</p>
-
-							<form>
-								<ul class="checked_list">
-									<li>
-										<input id="check_1" type="checkbox" checked />
-										<label for="check_1">
-											<h4>Оставаться в системе</h4>
-											
-											Вы всегда будете авторизованы с данным PIN-кодом.
-											Кнопка “Выход” станет неактивной
-										</label>
-									</li>
-									<li>
-										<input id="check_2" type="checkbox" checked />
-										<label for="check_2">
-											<h4>Скрыть настройки</h4>										
-											
-											Раздел “Настройки” станет неактивным для данного
-											браузера
-										</label>
-									</li>
-									<li>
-										<input id="check_3" type="checkbox" checked />
-										<label for="check_3">	
-											<h4>Скрыть кассу</h4>									
-											
-											Раздел “Касса” (“Cash”) станет неактивным для 
-											данного браузера
-										</label>
-									</li>
-									<li>
-										<input id="check_4" type="checkbox" />
-										<label for="check_4">
-											<h4>Снять Все при выходе </h4>
-											
-											Запрос на выплату всего остатка будет сформирован
-											автоматически при выходе из системы
-										</label>
-									</li>
-
-									<li>
-										<div class="btn_field">
-											<button class="gradient btn_form" type="submit">Применить</button>
-										</div>
-									</li>
-								</ul>
-							</form>	
-						</div>
 					</div>
-				</div><!--END .content_setting-->
+					<div id="tabs-4" ng-controller="Settings">
+						<h3>Настройки</h3>
+						<p>Указанные настройки будут сохранены в Cookies вашего браузера. После очистки Cookies будут действовать настройки “По умолчанию”.</p>
+
+						<form ng-submit="request()">
+							<ul class="checked_list">
+								<li>
+									<input id="check_1" type="checkbox" ng-model="model.auto_login" styler-checkbox>
+									<label for="check_1">
+										<h4>Оставаться в системе</h4>
+
+										Вы всегда будете авторизованы с данным PIN-кодом.
+										Кнопка “Выход” станет неактивной
+									</label>
+								</li>
+								<li>
+									<input id="check_2" type="checkbox" ng-model="model.hide_settings" styler-checkbox>
+									<label for="check_2">
+										<h4>Скрыть настройки</h4>
+
+										Раздел “Настройки” станет неактивным для данного
+										браузера
+									</label>
+								</li>
+								<li>
+									<input id="check_3" type="checkbox" ng-model="model.hide_cashbox" styler-checkbox>
+									<label for="check_3">
+										<h4>Скрыть кассу</h4>
+
+										Раздел “Касса” (“Cash”) станет неактивным для
+										данного браузера
+									</label>
+								</li>
+								<li>
+									<input id="check_4" type="checkbox" ng-model="model.auto_withdraw" styler-checkbox>
+									<label for="check_4">
+										<h4>Снять Все при выходе </h4>
+
+										Запрос на выплату всего остатка будет сформирован
+										автоматически при выходе из системы
+									</label>
+								</li>
+
+								<li>
+									<div class="btn_field">
+										<button class="gradient btn_form" type="submit">Применить</button>
+									</div>
+								</li>
+							</ul>
+						</form>
+					</div>
+				</div>
 			</div>
-		<!--/ko-->
 		</div>
-	</section>
-	<!--footer starts-->
-	<footer id="footer">
-		<div class="user-info">
-			<a class="userpic-holder" href="#">
-				<img src="images/img-userpic-1.png" alt="" width="52" height="52">
-			</a>
-			<dl>
-				<dt>PIN Код Игрока:</dt>
-				<dd data-bind="text: user.username">8854-6658-3325</dd>
-			</dl>
-		</div>
-		<div class="user-options">
-			<div class="balance-section">
-				<strong class="amount" data-bind="text: user.balanceText">$ 75 884.04</strong>
-				<a class="btn-cashier" href="#" data-bind="click: cashbox.toggle">Касса</a>
-			</div>
-			 <!--ko foreach:sections.list-->
-				<a class="btn-play-casino" href="#" data-bind="click: $parent.sections.current"><span data-bind="text: title">Casino</span>Играть в Казино</a>
-			<!--/ko-->
-		</div>
-		<a class="btn-settings" data-bind="click: settings.toggle"><span>Настройки</span></a>
-	</footer>
-	<!--footer ends-->
 
-	<!--ko with: settings-->
-	<div class="lightbox" data-bind="popup: active">
-		<ul class="menu" data-bind="foreach: tabs.list">
-			<li>
-				<a href="#" data-bind="css: {'active': active}, click: $parent.current">
-					<span data-bind="text: title"></span> <!--ko text:subTitle --><!--/ko-->
-				</a>
-			</li>
-		</ul>
-		<div class="main-section">
-			<!-- ko with: settingsBase -->
-			<div class="col">
-				<h2>Язык Интерфейса</h2>
-				<ul class="options-list" data-bind="foreach: languages">
-					<!-- ko if:enabled -->
-					<li><a href="#" data-bind="text: title, click: $parent.language, css: {active: active}"></a></li>
-					<!-- /ko -->
-					<!-- ko ifnot: enabled -->
-					<li class="inactive" data-bind="text: title"></li>
-					<!-- /ko -->
-				</ul>
-			</div>
-			<div class="col">
-				<h2>Валюта счета</h2>
-				<ul class="options-list" data-bind="foreach: currencies">
-					<!-- ko if:enabled -->
-					<li><a href="#" data-bind="text: title, click: $parent.currency, css: {active: active}"></a></li>
-					<!-- /ko -->
-					<!-- ko ifnot: enabled -->
-					<li class="inactive" data-bind="text: title"></li>
-					<!-- /ko -->
-				</ul>
-			</div>
-			<div class="col">
-				<h2>Деноминация</h2>
-				<ul class="options-list" data-bind="foreach: denominations">
-					<!-- ko if:enabled -->
-					<li><a href="#" data-bind="text: title, click: $parent.denomination, css: {active: active}"></a></li>
-					<!-- /ko -->
-					<!-- ko ifnot: enabled -->
-					<li class="inactive" data-bind="text: title"></li>
-					<!-- /ko -->
-				</ul>
-				<p>В играх, где есть внутренняя система деноминации, данные настройки не применяются</p>
-			</div>
-			<section class="option-section" data-bind="if: confirmation.active">
-				<h2>Применить выбранные настройки?</h2>
-				<!-- ko with: confirmation -->
-				<ul>
-					<li>
-						<div class="text">
-							<p><strong>Применить</strong>И перейти к Играм с новыми настройками</p>
-						</div>
-						<a class="btn-accept" href="#" data-bind="click: ok">Применить</a>
-					</li>
-					<li>
-						<a class="btn-decline" href="#" data-bind="click: cancel">Отменить</a>
-						<div class="text">
-							<p><strong>Отменить</strong> И продолжить игру со старыми настройками</p>
-						</div>
-					</li>
-				</ul>
-				<!-- /ko -->
-			</section>
-			<section class="option-section" data-bind="if: confirmation.active">
-				<h2>Вы действительно хотите выйти?</h2>
-				<!-- ko with: confirmation -->
-				<ul>
-					<li>
-						<div class="text">
-							<p><strong>Выйти</strong> Ваша игровая сессия будет закрыта</p>
-						</div>
-						<a class="btn-accept" href="#" data-bind="click: ok">Выйти</a>
-					</li>
-					<li>
-						<a class="btn-decline" href="#" data-bind="click: cancel">Отменить</a>
-						<div class="text">
-							<p><strong>Отменить</strong> И вернуться к игре</p>
-						</div>
-					</li>
-				</ul>
-				<!-- /ko -->
-			</section>
-			<!-- /ko -->
-		</div>
-		<a class="btn-close" data-bind="click: function(){toggle(false);}">Закрыть (Esc)</a>
+		<script type="text/javascript" src="js/owl.carousel.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+		<script type="text/javascript" src="js/jquery.formstyler.js"></script>
+		<script type="text/javascript">
+			jQuery(function () {
+				slider();
+				$("#tabs").tabs();
 
-	</div>
-	<!--/ko-->
-
-	<script type="text/javascript" src="js/owl.carousel.js"></script>
-	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
-	<script type="text/javascript" src="js/jquery.formstyler.min.js"></script>
-	<script type="text/javascript">
-		jQuery(function(){
-			slider ();
-			$( "#tabs" ).tabs();
-
-			setTimeout(function() {  
-				$('#tabs input').styler();  
-			}, 100) 
-		});
-		function slider () {
-
-			var Games = $("#Games .owl-carousel"),
-				slider = $(".slider .owl-carousel");
-
-			Games.owlCarousel({
-			   itemsCustom : [
-			        [0, 2],
-			        [450, 4],
-			        [600, 7],
-			        [700, 9],
-			        [1000, 11],
-			        [1200, 12],
-			        [1400, 14],
-			        [1600, 16],
-			        [1920,18]
-			    ],
-				autoPlay :5000,
-				slideSpeed : 500,
+				// initialize custom scrolls
+				$('.payment-options').mCustomScrollbar({
+					horizontalScroll:true
+				});
+				/*$('.table-holder').mCustomScrollbar();
+				// custom scroll container height function
+				var container = $('body'),
+						header = container.find('#header'),
+						headerHeight = parseInt(header.outerHeight(true)),
+						footer = container.find('#footer'),
+						footerHeight = parseInt(header.outerHeight(true)),
+						scrollHolder = container.find('.scroll-holder').mCustomScrollbar(),
+						footerIndent = 23;
+				function updateScrollHolderHeight(){
+					scrollHolder.css({
+						height: container.height() - (headerHeight + footerHeight + footerIndent)
+					});
+					scrollHolder.mCustomScrollbar('update');
+				}
+				updateScrollHolderHeight();
+				$(window).on('resize',function(){
+					updateScrollHolderHeight();
+				});*/
+				/*ko.utils.arrayForEach(clubView.sections.list, function(section){
+					section.filteredGames.subscribe(function(){
+						scrollHolder.mCustomScrollbar('update');
+					});
+				});*/
 			});
+			function slider() {
 
-			slider.owlCarousel({
-			   itemsCustom : [
-			        [0, 1],
-			        [450, 2],
-			        [600, 2],
-			        [700, 3],
-			        [1000, 4],
-			        [1200, 5],
-			        [1400, 6],
-			        [1600, 7],
-			        [1920,8]
-			    ],
-				autoPlay :5000,
-				slideSpeed : 500,
-			});
+				var Games = $("#Games .owl-carousel"),
+						slider = $(".slider .owl-carousel");
 
-			// Custom Navigation Events
-			$("#Games .next").click(function(){
-				Games.trigger('owl.next');
-			});
-			$("#Games .prev").click(function(){
-				Games.trigger('owl.prev');
-			});
+				if(0)Games.owlCarousel({
+					itemsCustom: [
+						[0, 2],
+						[450, 4],
+						[600, 7],
+						[700, 9],
+						[1000, 11],
+						[1200, 12],
+						[1400, 14],
+						[1600, 16],
+						[1920, 18]
+					],
+					autoPlay: 5000,
+					slideSpeed: 500
+				});
 
-			// Custom Navigation Events
-			$(".slider .next").click(function(){
-				slider.trigger('owl.next');
-			});
-			$(".slider .prev").click(function(){
-				slider.trigger('owl.prev');
-			});
+				slider.owlCarousel({
+					itemsCustom: [
+						[0, 1],
+						[450, 2],
+						[600, 2],
+						[700, 3],
+						[1000, 4],
+						[1200, 5],
+						[1400, 6],
+						[1600, 7],
+						[1920, 8]
+					],
+					autoPlay: 5000,
+					slideSpeed: 500
+				});
 
-			$("#account_history").owlCarousel({
-				navigation : true, 
-				slideSpeed : 500,
-				paginationSpeed : 500,
-				singleItem:true
-			});
-		}
-	</script>
-</body>
+				// Custom Navigation Events
+				if(0)$("#Games .next").click(function () {
+					Games.trigger('owl.next');
+				});
+				if(0)$("#Games .prev").click(function () {
+					Games.trigger('owl.prev');
+				});
+
+				// Custom Navigation Events
+				$(".slider .next").click(function () {
+					slider.trigger('owl.next');
+				});
+				$(".slider .prev").click(function () {
+					slider.trigger('owl.prev');
+				});
+			}
+		</script>
+	</body>
 </html>
