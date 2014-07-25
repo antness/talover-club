@@ -4,6 +4,7 @@ var app = angular.module('theclub', [
 	'theclub.settings.controllers',
 	'theclub.topBar.controllers',
 	'nnCustomScrollbar',
+	'nnFullHeight',
 	'topBar',
 	'owlCarousel',
 	'ngMockE2E',

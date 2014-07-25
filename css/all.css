@@ -79,6 +79,7 @@ q:after{
 	width:100%;
 	height:100%;
 	overflow:hidden;
+    padding-top: 30px;
 }
 i.icon{
 	vertical-align:middle;
@@ -367,9 +368,10 @@ i.icon{
 	left:0;
 	top:0;
 	right:0;
-	bottom:60px;
+	bottom:70px;
 	padding:28px 0 0;
 	display:none;
+    z-index: 1001;
 }
 .lightbox .menu{
 	list-style:none;
@@ -767,7 +769,7 @@ i.icon{
 /* lightbox styles end */
 /* footer styles start */
 #footer{
-	margin:-20px 0 0;
+	margin:40px 0 0;
 	position:absolute;
 	height:60px;
 	width:100%;
@@ -1013,7 +1015,10 @@ i.icon{
 	float: right;
 }
 #TopBar {
-	padding-bottom: 20px;
+	/*padding-bottom: 20px;*/
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
 }
 #TopBar nav {
 	height: 30px;
@@ -1138,7 +1143,7 @@ i.icon{
 
 .slider_block {
 	height: 90px;
-	background: rgba(0,0,0,0.3);
+	background: rgba(0,0,0,0.9);
 	padding: 0 79px;
 	position: relative;
 	display: none;
@@ -1505,7 +1510,7 @@ i.icon{
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	position: absolute;
-	text-indent: -999px;
+	text-indent: -1999px;
 	top:50%;
 	margin-top: -22px;
 }
@@ -1721,6 +1726,10 @@ i.icon{
 }
 /* media styles end */
 
-.game-holder {
+.game-holder iframe {
+    width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }

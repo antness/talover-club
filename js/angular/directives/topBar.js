@@ -42,7 +42,7 @@ m.directive('topBar', function(){
 		}
 	};
 });
-m.directive('topBarPage', function(){
+m.directive('topBarPage', function($rootScope){
 	return {
 		restrict: 'A',
 		require: '^topBar',
@@ -57,6 +57,7 @@ m.directive('topBarPage', function(){
 			});
 			scope.$watch('bar.activePage', function(p, old){
 				if(p === old) return;
+
 				if(p === page)
 				{
 					// show
@@ -65,9 +66,10 @@ m.directive('topBarPage', function(){
 				else
 				{
 					// hide
-					el.slideUp().removeClass('active')
+					el.slideUp().removeClass('active');
 				}
 			});
+
 			scope.$on('$destroy', function(){
 				topBar.removePage(page);
 			});
